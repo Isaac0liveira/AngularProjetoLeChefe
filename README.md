@@ -19,5 +19,5 @@ ao digitar qualquer coisa e clicar para entrar, você terá acesso aos menus e v
 ao digitar '123' para entrar, você terá acesso aos menus e visão de administrador, visão diferente e com mais elementos em relação a visão comum. </h5>
 
 <br>
-#Run
+# Run
 ![](funcionamento-login.gif)
