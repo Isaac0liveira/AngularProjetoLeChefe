@@ -1,0 +1,91 @@
+<div style="display: flex; flex-direction: column; background: linear-gradient(rgb(159,154,229), #4b12e9); height: 100%; max-height: 100%;">
+<mat-card *ngIf="adm == true" class="cardPrincipal mat-elevation-z8 notranslate">
+  <mat-list>
+    <div class="titulo notranslate">Estatísticas do Dia</div>
+    <br>
+    <mat-divider></mat-divider>
+    <mat-list-item class="notranslate" style="padding-top: 20px">
+      <div mat-line>
+        <div class="textoDetalhe notranslate">Total:</div>
+      </div>
+      <span class="notranslate" style="font-size: 1.2rem; white-space: nowrap;">R${{total.toFixed(2)}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item class="notranslate" style="padding-top: 20px">
+      <div mat-line>
+        <div class="textoDetalhe notranslate">Em Dinheiro:</div>
+      </div>
+      <span class="notranslate" style="font-size: 1.2rem; white-space: nowrap;">R${{dinheiro.toFixed(2)}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item class="notranslate" style="padding-top: 20px">
+      <div mat-line>
+        <div class="textoDetalhe notranslate">Em Cartão (Crédito):</div>
+      </div>
+      <span class="notranslate" style="font-size: 1.2rem; white-space: nowrap;">R${{credito.toFixed(2)}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item class="notranslate" style="padding-top: 20px">
+      <div mat-line>
+        <div class="textoDetalhe notranslate">Em Cartão (Débito):</div>
+      </div>
+      <span class="notranslate" style="font-size: 1.2rem; white-space: nowrap;">R${{debito.toFixed(2)}}</span>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+
+  <div class="animated fadeInDownBig" style="width: 100%">
+    <mat-card [class.mat-elevation-z6]="'isActive'" class="text notranslate" style="padding-top: 20px; color: #eafaff; margin-top: 10px; background: linear-gradient(#4d41ef, #3b07b3);">
+      Histórico
+    </mat-card>
+  </div>
+
+<div class="animated fadeInUpBig notranslate mat-elevation-z8">
+  <mat-card style="background: linear-gradient(#4158ef, #9c6cf5); margin-top: 30px;">
+    <div *ngFor="let produto of listaHistorico; let i = index" class="notranslate" style="display: flex; margin-top: 30px; justify-content: center">
+      <mat-card class="cardProduto notranslate mat-elevation-z8" style="border-radius: 20px; background: linear-gradient(#acefe9, #706cf5)">
+        <div class="deleteButton notranslate" style="left: 0; padding-left: 10px;">
+          <span *ngIf="produto[0].isDelivery" class="notranslate" style="width: 70px; border-radius: 10px; text-align: center; background-color: #001eba; color: white">Entrega</span>
+          <span *ngIf="produto[0].isDelivery == false" class="notranslate" style="width: 70px; border-radius: 10px; text-align: center; background-color: green; color: white">Retirada</span>
+        </div>
+        <div class="deleteButton notranslate">
+          <span *ngIf="checkData(produto[0].dataHora) == 1 " class="notranslate" style="padding-top: 5px; padding-right: 5px">Pedido Ativo</span>
+          <span *ngIf="checkData(produto[0].dataHora) == 2 " class="notranslate" style="padding-top: 5px; padding-right: 5px">Em Preparo</span>
+          <span *ngIf="checkData(produto[0].dataHora) == 3 && produto[0].isDelivery" class="notranslate" style="padding-top: 5px; padding-right: 5px">Em Entrega</span>
+          <span *ngIf="checkData(produto[0].dataHora) == 3 && produto[0].isDelivery == false" class="notranslate" style="padding-top: 5px; padding-right: 5px">Pedido Pronto</span>
+          <!--<button (click)="clickDelete(produto[0].idPedido)" *ngIf="checkData(produto[0].dataHora) == 1 && adm == false" class="notranslate" mat-icon-button style="background-color: rgb(255,51,0);color: white; height: 30px; width: 30px">
+            <span class="text-icon notranslate">x</span>
+          </button> -->
+          <button (click)="openDialogInfo(produto[0])" *ngIf="adm == true && produto[0].isDelivery" class="notranslate" mat-icon-button style="background-color: blue;color: white; height: 30px; width: 30px">
+            <span class="text-icon notranslate">i</span>
+          </button>
+        </div>
+
+
+        <div (click)="openDialog(produto)" class="detalhe notranslate">
+          <div class="cardDetalhe notranslate">
+            <div class="produtoDetalhe notranslate">
+              Carrinho - {{formatData(produto[0].dataHora)}}
+            </div>
+            <div class="produtoDetalhe notranslate">
+              Preço: R${{calcularValorCarrinho(produto)}} <span *ngIf="produto[0].isDelivery == true">  + Taxa de Entrega: R${{escolhaBairro(produto[0].bairro)}} </span>
+            </div>
+            <div class="produtoDetalhe notranslate">
+              Quantidade: {{produto[0].quantidade}}
+            </div>
+            <div *ngIf="produto[0].troco > 0" class="produtoDetalhe notranslate">
+              Troco: R${{produto[0].troco}}
+            </div>
+            <div class="produtoDetalhe notranslate">
+              <span *ngIf="produto[0].dinheiro > 0" class="notranslate">Método: Dinheiro</span>
+              <span *ngIf="produto[0].credito > 0" class="notranslate">Método: Cartão (Crédito)</span>
+              <span *ngIf="produto[0].debito > 0" class="notranslate">Método: Cartão (Débito)</span>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </mat-card>
+</div>
+</div>
+

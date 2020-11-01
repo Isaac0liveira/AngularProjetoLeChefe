@@ -1,0 +1,122 @@
+<div class="body animated fadeInLeft">
+  <div class="animated fadeInDownBig" style="width: 100%">
+  <mat-card style="padding-top: 20px; color: #eafaff; margin-top: 10px; background: linear-gradient(#4b4bea, #6e25a2)" class="text notranslate" [class.mat-elevation-z6]="'isActive'">
+  Perfil
+  </mat-card>
+  </div>
+
+  <mat-card class="animated fadeInUpBig" [class.mat-elevation-z6]="'isActive'" style="background: linear-gradient(#7b5ef3, #c0c3fa); border-radius: 20px; margin-top: 20px;">
+
+    <mat-card [class.mat-elevation-z6]="'isActive'" style="border-radius: 40px; padding-top: 10px; margin-top: 10px; background-color: white">
+      <div class="alinharCadastro notranslate">
+        <mat-form-field class="formCadastro notranslate" style="font-size: 1.2rem">
+          <mat-label class="notranslate">Nome</mat-label>
+          <input [(ngModel)]="usuario.nome" matInput name="nome" type="text" value="{{usuario.nome}}">
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card [class.mat-elevation-z6]="'isActive'" style="border-radius: 40px; padding-top: 10px; margin-top: 10px; background-color: white">
+      <div class="alinharCadastro notranslate">
+        <mat-form-field class="formCadastro notranslate" style="font-size: 1.2rem">
+          <mat-label class="notranslate">Cidade</mat-label>
+          <input [(ngModel)]="usuario.cidade" matInput name="cidade" type="text" value="{{usuario.cidade}}">
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card [class.mat-elevation-z6]="'isActive'" style="border-radius: 40px; padding-top: 10px; margin-top: 10px; background-color: white">
+      <div class="alinharCadastro notranslate">
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Selecione seu Bairro</mat-label>
+          <mat-select [(ngModel)]="usuario.bairro">
+            <mat-option value="residencial1">
+              Residencial 1
+            </mat-option>
+            <mat-option value="residencial2">
+              Residencial 2
+            </mat-option>
+            <mat-option value="jardinsdaserra">
+              Jardins da Serra
+            </mat-option>
+            <mat-option value="luzardoviana">
+              Luzardo Viana
+            </mat-option>
+            <mat-option value="maracanazinho">
+              Maracanãzinho
+            </mat-option>
+            <mat-option value="piratininga">
+              Piratininga
+            </mat-option>
+            <mat-option value="novo">
+              Novo Maracanaú
+            </mat-option>
+            <mat-option value="mucuna">
+              Mucunã
+            </mat-option>
+            <mat-option value="jereissati1">
+              Jereissati 1
+            </mat-option>
+            <mat-option value="jereissati2">
+              Jereissati 2
+            </mat-option>
+            <mat-option value="timbo">
+              Timbó
+            </mat-option>
+            <mat-option value="lagoaparque">
+              Lagoa Parque
+            </mat-option>
+            <mat-option value="acaracuzinho">
+              Acaracuzinho
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card [class.mat-elevation-z6]="'isActive'" style="border-radius: 40px; padding-top: 10px;  margin-top: 10px;background-color: white">
+      <div class="alinharCadastro notranslate">
+        <mat-form-field [(ngModel)]="usuario.rua" class="formCadastro notranslate" name="rua"
+                        ngDefaultControl style="font-size: 1.2rem">
+          <mat-label class="notranslate">Endereço</mat-label>
+          <input matInput type="text" value="{{usuario.rua}}">
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card [class.mat-elevation-z6]="'isActive'" style="border-radius: 40px; padding-top: 10px;  margin-top: 10px;background-color: white">
+      <div class="alinharCadastro notranslate">
+        <mat-form-field class="formCadastro notranslate" style="font-size: 1.2rem">
+          <mat-label class="notranslate">Celular</mat-label>
+          <input [(ngModel)]="usuario.celular" matInput name="celular" type="text" value="{{usuario.celular}}">
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card [class.mat-elevation-z6]="'isActive'" style="border-radius: 40px; padding-top: 10px;  margin-top: 10px;background-color: white">
+      <div class="alinharCadastro notranslate">
+        <mat-form-field class="formCadastro notranslate" style="font-size: 1.2rem">
+          <mat-label class="notranslate">Telefone</mat-label>
+          <input [(ngModel)]="usuario.telefone" matInput name="telefone" type="text" value="{{usuario.telefone}}">
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <mat-card [class.mat-elevation-z6]="'isActive'"
+              style="border-radius: 40px; padding-top: 10px;  margin-top: 10px;background-color: white">
+      <div class="alinharCadastro notranslate">
+        <mat-form-field class="formCadastro notranslate" style="font-size: 1.2rem">
+          <mat-label class="notranslate">Complemento</mat-label>
+          <input [(ngModel)]="usuario.complemento" matInput name="complemento" type="text"
+                 value="{{usuario.complemento}}">
+        </mat-form-field>
+      </div>
+    </mat-card>
+    <a class="alinharCadastro notranslate" style="padding-bottom: 10%;">
+      <button (click)="edit()" [disabled]="(usuario.nome.length == 0|| usuario.bairro.length == 0|| usuario.cidade.length == 0|| usuario.rua.length == 0|| usuario.celular.length == 0)"
+              class="button notranslate"
+              mat-raised-button style="height: 70px; width: 100%; font-size: 1.6rem">Editar
+      </button>
+    </a>
+  </mat-card>
+</div>

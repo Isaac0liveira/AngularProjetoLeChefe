@@ -1,0 +1,125 @@
+<div class="bodyCustom notranslate">
+  <mat-card class="cardPrincipal notranslate mat-elevation-z8">
+    <div class='text notranslate' style="color: #5c42b1">
+      Cadastre seus dados!
+    </div>
+    <div class="alinharCadastro notranslate">
+      <mat-form-field class="formCadastro notranslate">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" placeholder="Digite seu nome" [(ngModel)]="usuario.nome" [formControl]="nomeValidate" name="Nome" required>
+        <mat-error *ngIf="nomeValidate.invalid">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+          <span class="errorTxt notranslate">Você deve preencher seu nome</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="alinharCadastro notranslate">
+      <mat-form-field class="formCadastro notranslate">
+        <mat-label>Cidade</mat-label>
+        <input matInput type="text" placeholder="Digite sua Cidade" [(ngModel)]="usuario.cidade"  [formControl]="cidadeValidate" name="Cidade" required>
+        <mat-error *ngIf="cidadeValidate.invalid">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+          <span class="errorTxt notranslate">Você deve preencher sua Cidade</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="alinharCadastro notranslate">
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Selecione seu Bairro</mat-label>
+        <mat-select [(ngModel)]="usuario.bairro">
+          <mat-option value="residencial1">
+            Residencial 1
+          </mat-option>
+          <mat-option value="residencial2">
+            Residencial 2
+          </mat-option>
+          <mat-option value="jardinsdaserra">
+            Jardins da Serra
+          </mat-option>
+          <mat-option value="luzardoviana">
+            Luzardo Viana
+          </mat-option>
+          <mat-option value="maracanazinho">
+            Maracanãzinho
+          </mat-option>
+          <mat-option value="piratininga">
+            Piratininga
+          </mat-option>
+          <mat-option value="novo">
+            Novo Maracanaú
+          </mat-option>
+          <mat-option value="mucuna">
+            Mucunã
+          </mat-option>
+          <mat-option value="jereissati1">
+            Jereissati 1
+          </mat-option>
+          <mat-option value="jereissati2">
+            Jereissati 2
+          </mat-option>
+          <mat-option value="timbo">
+            Timbó
+          </mat-option>
+          <mat-option value="lagoaparque">
+            Lagoa Parque
+          </mat-option>
+          <mat-option value="acaracuzinho">
+            Acaracuzinho
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="alinharCadastro notranslate">
+      <mat-form-field class="formCadastro notranslate">
+        <mat-label>Endereço</mat-label>
+        <input matInput type="text" placeholder="Digite seu Endereço" [(ngModel)]="usuario.rua"  [formControl]="ruaValidate" name="Rua" required>
+        <mat-error *ngIf="ruaValidate.invalid">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+          <span class="errorTxt notranslate">Você deve preencher seu endereço</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="alinharCadastro notranslate">
+      <mat-form-field class="formCadastro notranslate">
+        <mat-label>Celular</mat-label>
+        <input matInput type="text" placeholder="Digite seu Celular" [(ngModel)]="usuario.celular"  [formControl]="phoneValidate" name="Celular" required>
+        <mat-error *ngIf="phoneValidate.invalid">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+          <span class="errorTxt notranslate">Você deve preencher seu Celular</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <div class="alinharCadastro notranslate">
+      <mat-form-field class="formCadastro notranslate">
+        <mat-label>Telefone</mat-label>
+        <input matInput type="text" placeholder="Digite seu Telefone" [(ngModel)]="usuario.telefone" name="Telefone">
+      </mat-form-field>
+    </div>
+
+    <div class="alinharCadastro notranslate">
+      <mat-form-field class="formCadastro notranslate">
+        <mat-label>Ponto de Referência</mat-label>
+        <input matInput type="text" [(ngModel)]="usuario.complemento" placeholder="Digite um Complemento" name="Complemento">
+      </mat-form-field>
+    </div>
+
+    <div class="alinharCadastro notranslate" style="padding-bottom: 10%;">
+      <button (click)="save()" class="botao notranslate" mat-raised-button
+              [disabled]="(nomeValidate.invalid || usuario.bairro == undefined || ruaValidate.invalid || cidadeValidate.invalid || phoneValidate.invalid)">Cadastrar</button>
+    </div>
+  </mat-card>
+</div>

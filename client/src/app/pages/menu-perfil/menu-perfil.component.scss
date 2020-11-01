@@ -1,0 +1,16 @@
+button {
+  width: 60%; height: 40%; color: white; background-color: #5c42b1
+}
+
+.body{
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(rgb(154, 184, 229), #4b12e9);
+  height: 100%;
+  max-height: 100%;
+  padding-bottom: 40px;
+}
+
+button :disabled{
+  width: 60%; color: grey; background-color: ghostwhite;
+}

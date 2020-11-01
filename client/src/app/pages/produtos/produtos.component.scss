@@ -1,0 +1,27 @@
+.card{
+  background: linear-gradient(rgb(121, 11, 246), rgb(36, 19, 202));
+  width: 100px;
+  height: 70px;
+  margin: 10px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: lighter;
+}
+
+.body{
+  background: linear-gradient(rgb(154, 184, 229), #4b12e9);
+  height: 100%;
+  max-height: 100%;
+}
+
+.Cards{
+  display: flex;
+  padding-top: 5px;
+  justify-content: center;
+  text-align: center;
+}
+
+.material-icons{
+  color: white;
+  font-size: 40px;
+}

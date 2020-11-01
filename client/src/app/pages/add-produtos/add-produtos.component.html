@@ -1,0 +1,43 @@
+<div translate="no" class="bodyDialog">
+  <mat-form-field translate="no">
+    <mat-label translate="no">Nome do Produto</mat-label>
+    <input translate="no" matInput type="text" [(ngModel)]="nomeProduto">
+  </mat-form-field>
+  <mat-form-field translate="no">
+    <mat-label translate="no">Preço do Produto</mat-label>
+    <input translate="no" matInput type="number" [(ngModel)]="precoProduto">
+  </mat-form-field>
+    <mat-label  *ngIf="acrescimo == false" translate="no">Foto do Produto</mat-label>
+    <input *ngIf="acrescimo == false" translate="no" type="file" (change)="addFoto($event)">
+  <div *ngIf="haveSub" translate="no">
+    <mat-form-field translate="no">
+      <mat-label translate="no">SubTipo</mat-label>
+      <mat-select translate="no" [(ngModel)]="subTipo">
+        <mat-option translate="no" value="arabe">Árabe</mat-option>
+        <mat-option translate="no" value="bola">Bola</mat-option>
+        <mat-option translate="no" value="brioche">Brioche</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-form-field translate="no">
+    <mat-label translate="no">Descrição</mat-label>
+    <input translate="no" matInput [(ngModel)]="descrProduto">
+  </mat-form-field>
+  <div translate="no">
+    <mat-form-field translate="no">
+      <mat-label translate="no">Disponibilidade</mat-label>
+      <mat-select translate="no" [(ngModel)]="esgotado">
+        <mat-option translate="no" value="false">Disponível</mat-option>
+        <mat-option translate="no" value="true">Esgotado</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div translate="no" (click)="adicionar()" *ngIf="nomeProduto.length > 0 && precoProduto > 0 && haveSub == true
+ && (subTipo == 'arabe' || subTipo == 'bola' || subTipo == 'brioche') && (esgotado == 'true' || esgotado == 'false')"
+       class="dialogButton">
+    <button translate="no" mat-button>Adicionar</button>
+  </div>
+  <div translate="no" (click)="adicionar()" *ngIf="nomeProduto.length > 0 && precoProduto > 0 && haveSub == false  && (esgotado == 'true' || esgotado == 'false')" class="dialogButton">
+    <button translate="no" mat-button>Adicionar</button>
+  </div>
+</div>

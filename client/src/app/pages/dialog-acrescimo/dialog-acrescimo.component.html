@@ -1,0 +1,37 @@
+<div class="animated fadeIn">
+<mat-card class="text" style="background: linear-gradient(#4f1298, #5f5fff); color: #befff9" [class.mat-elevation-z6]="'isActive'">
+    Acrescimo
+</mat-card>
+<div class="notranslate" *ngIf="compra == false" (click)="fechar()" style="display: flex; justify-content: center; margin-top: 15px">
+  <button class="notranslate" mat-button style="background: linear-gradient(#ff0000, #ff4d4d); color: #ffffff; width: 100%; font-size: 1.2rem">Sem Acréscimo</button>
+</div>
+  <mat-card  *ngFor="let produtos of produto; let i = index" class='dialogModelo animated fadeInUp notranslate' [class.mat-elevation-z6]="'isActive'">
+    <div *ngIf="adm" class="notranslate" style="display: flex;">
+      <div class="notranslate">
+        <button class="notranslate" mat-icon-button (click)="openDialog(produtos)" style="font-size: 2.1rem; background-color: grey;  color: whitesmoke" class="quantity-icons">edit</button>
+      </div>
+      <div style="margin-left: auto; horiz-align: center" class="notranslate">
+        <button class="notranslate" mat-icon-button (click)="deletarProduto(produtos)" style="font-family: 'Material Icons'; font-size: 3rem; color: red;">remove_circle</button>
+      </div>
+    </div>
+    <mat-card style="margin-top: 10px; background-color: white" [class.mat-elevation-z6]="'isActive'">
+      <div class="titulo notranslate" style="font-size: 1rem; font-weight: bold"> {{produtos.nome}}</div>
+      <div class="titulo notranslate"> {{produtos.descricao}}</div>
+      <div class="titulo notranslate" style="font-size: 1rem; font-weight: bold"> Preço: R${{produtos.preco.toFixed(2)}}</div>
+      <div class="titulo notranslate" style="font-size: 1.5rem; font-weight: bolder; margin-top: 5px" *ngIf="produtos.esgotado == true">ESGOTADO</div>
+      <div class="notranslate" *ngIf="adm != true && produtos.esgotado != true" style="display: inline">
+        <span class="quantity-icons notranslate" (click)="remover(produtos)" style="color: red; margin-left: 10px">remove_circle</span>
+        <mat-form-field class="notranslate" style="width: 10%; text-align: center" name="form{{i}}">
+          <input matInput type="number" name="{{i}}" [(ngModel)]="produtos.quantidade" min="0">
+        </mat-form-field>
+        <span class="quantity-icons notranslate" (click)="add(produtos)" style="color: forestgreen; margin-right: 10px">add_circle</span>
+      </div>
+      <div class="notranslate" *ngIf="adm != true && produtos.esgotado != true">
+        <button class="notranslate" mat-button (click)="sendToCarrinho(i)" style="background-color: #5c42b1; color: white; width: 60%">Adicionar</button>
+      </div>
+    </mat-card>
+  </mat-card>
+<div class="notranslate animated fadeInUpBig sticky" *ngIf="compra == true" (click)="fechar()" style="position: sticky; justify-content: center; bottom: 0;">
+  <mat-card class="notranslate" style="display: flex; background: linear-gradient(#208100, #94ff22); color: white; width: 100%; height: 45px;  position: relative; transform: translate(-6%, 60%); font-size: 1.5rem; font-weight: lighter"><span style="display: flex; margin-left: 23px;">Completar Acréscimo</span></mat-card>
+</div>
+</div>

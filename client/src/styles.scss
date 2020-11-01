@@ -1,0 +1,162 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+.basic-container {
+  padding: 30px;
+}
+
+.mat2-menu-content:not(:empty) {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background: linear-gradient(#aff8f8, #c8b5ef)
+}
+
+.mat-drawer-inner-container{
+  background: linear-gradient(#dbe9fd, #8391ee);
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+  margin: 8px;
+}
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #5c42b1 !important;
+}
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #5c42b1
+}
+.sticky{
+  z-index: 2;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+}
+
+.errorTxt{
+  font-size: 120%;
+  position: absolute;
+  padding-top: 2.5px;
+  padding-left: 2px;
+}
+
+.error-icons{
+  font-family: 'Material Icons';
+  font-size: 180%;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+.mat-snack-bar-container { max-width: 80% !important; }
+
+.snackbar span {
+  font-size:1.3rem !important;
+}
+
+.snackbar{
+  background-color: #218f0f;
+  font-size: 1.2rem;
+  color: white;
+  position: absolute;
+  top: 90px;
+  left: 50px;
+}
+
+.snackbar button{
+  color: red;
+}
+
+.AdmSnackbar{
+  background-color: #ca1212;
+  color: white;
+  position: absolute;
+  top: 45px;
+  left: 50px;
+}
+
+.cdk-overlay-pane.my-dialog {
+  position: relative!important;
+}
+.close.mat-icon-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-5%, 100%);
+  padding-right: 10px;
+  line-height: 14px;
+  min-width: auto;
+}
+
+.my-panel .mat-dialog-container {
+  border-radius: 15px;
+  background: linear-gradient(#d6c0ef, #6a7cff);
+  overflow-x: hidden;
+}
+
+.AdmSnackbar span {
+  font-size:1.3rem !important;
+}
+
+.AdmSnackbar button{
+  color: red;
+}
+
+.text{
+  position: relative;
+  font-size: 250%;
+  text-align: center;
+  line-height: 100%;
+  padding-top: 30px;
+  font-family: 'Lobster', cursive;
+}
+
+.alinharCadastro{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.formCadastro{
+  padding-top: 3%;
+  height: 4.0rem;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.bodyDialog{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dialogButton{
+  display: flex; background-color: #5c42b1; color: white; justify-content: center;
+}
+
+.bodyCustom{
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+  background-color: #5c42b1;
+  min-height: 100%;
+  min-width: auto;
+}
+
+
+.cardPrincipal{
+  display: flex;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  text-align: right;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

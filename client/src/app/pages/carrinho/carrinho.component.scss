@@ -1,0 +1,88 @@
+@import '~@angular/material/theming';
+
+.produtosCarrinho{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
+  min-width: 300px;
+  width: auto;
+}
+
+.body{
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+  background-color: #5c42b1;
+  height: auto;
+  min-width: auto;
+}
+
+.cardProduto{
+  display: flex;
+  text-align: right;
+  padding-bottom: 10px;
+  min-width: 250px;
+  width: auto;
+}
+
+.produtoDetalhe{
+  display: flex;
+  justify-content: left;
+  margin-top: 10px;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.cardDetalhe{
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  justify-content: left;
+  font-size: 0.8rem;
+}
+
+.titulo{
+  text-align: center;
+  color: #5c42b1;
+  line-height: 40px;
+  font-size: 2.4rem;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.foto{
+  height: 100px;
+  width: 120px;
+}
+
+.textoDetalhe{
+  display: flex;
+  text-align: left;
+  padding-right: 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.confirmaButton{
+  display: flex;
+  padding-top: 5px;
+  justify-content: center
+}
+
+.deleteButton{
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.text-icon{
+  position: relative;
+  font-size: 1.6rem;
+  font-weight: lighter;
+  top: -7px;
+}
+
+.detalhe{
+  display: flex;
+  padding-bottom: 10px;
+}

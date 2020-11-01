@@ -1,0 +1,23 @@
+<div class="notranslate animated fadeInDown" style="display: flex; flex-direction: column; justify-content: center">
+       <mat-card class="cardProduto notranslate mat-elevation-z6" style="display: flex; background:linear-gradient(#5100a7, #0000ca); margin-top: 15px; border-radius: 15px; flex-direction: column"  *ngFor="let produto of produto">
+         <mat-card style="width: 90%; border-radius: 20px; padding-right: 5px;">
+         <div class="detalhe notranslate">
+             <img *ngIf="produto.cardapio.tipo != 'acrescimo' && produto.cardapio.tipo != 'sucos' " class="foto notranslate" style="display: flex; margin-top: 20px; border-radius: 15px" [attr.src]="try(produto.cardapio.arquivo.arquivo)">
+           <div class="cardDetalhe notranslate">
+             <div class="produtoDetalhe notranslate">
+               {{produto.cardapio.nome}}
+             </div>
+             <div class="produtoDetalhe notranslate">
+               Preço: R${{produto.cardapio.preco.toFixed(2)}}
+             </div>
+             <div class="produtoDetalhe notranslate">
+               Quantidade: {{produto.quantidade}}
+             </div>
+             <div class="produtoDetalhe notranslate">
+               Observação: {{produto.observacao}}
+             </div>
+           </div>
+         </div>
+         </mat-card>
+      </mat-card>
+</div>

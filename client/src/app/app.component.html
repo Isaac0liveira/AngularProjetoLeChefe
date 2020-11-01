@@ -1,0 +1,23 @@
+
+<router-outlet>
+  <div class="sticky">
+    <app-header></app-header>
+    <div *ngIf="backOpen" style="display: flex; background-color: #5c42b1; justify-content: right">
+      <button mat-button (click)="goBack()" class="backButton animated fadeInLeft mat-elevation-z8" color="primary">
+        <div style="display: flex; font-size: 1.2rem">
+          <mat-icon style="padding-top: 5px; font-size: 1.5rem">keyboard_backspacee</mat-icon>
+          <span style="padding-left: 10px">Retornar</span>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div *ngIf="carrinhoOpen" style="display: flex; justify-content: flex-end">
+    <button mat-icon-button (click)="navegar('carrinho')" style="display: flex;" class="carrinhoButton longanimated bounce infinite mat-elevation-z8" >
+      <mat-icon style="font-size: 30px; margin-right: 5px; padding-top: 20px">local_grocery_store</mat-icon>
+    </button>
+  </div></router-outlet>
+
+
+
+
+

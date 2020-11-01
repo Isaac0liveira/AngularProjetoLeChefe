@@ -1,0 +1,140 @@
+<div style="display: flex; flex-direction: column; justify-content: center">
+<mat-card style="display: flex; flex-direction: column; justify-content: center; max-width: 100%; border-radius: 20px; padding-right: 10px;">
+<mat-radio-group [(ngModel)]="metodoPagamento" (change)="reset()" class="radioGroup notranslate">
+  <mat-radio-button class="radioButton notranslate" value="cartao">
+      <div class="notranslate" style="display: flex; flex-direction: row;">
+        <img class="foto notranslate" src="./assets/cartao.png">
+        <span style="padding-top: 10px; font-size: 1.1rem" class="notranslate">Cartão <br> Crédito/Débito</span>
+      </div>
+  </mat-radio-button>
+  <mat-radio-button class="radioButton notranslate" value="dinheiro" >
+    <div style="display: flex; flex-direction: row;" class="notranslate">
+      <img class="foto notranslate" src="./assets/dinheiro.png">
+      <span style="padding-top: 20px; font-size: 1.1rem" class="notranslate">Dinheiro</span>
+    </div>
+  </mat-radio-button>
+</mat-radio-group>
+<div *ngIf="this.metodoPagamento == 'cartao'" class="notranslate animated fadeIn">
+  <mat-form-field appearance="fill" style="width: 100%" class="notranslate">
+    <mat-label class="notranslate">Tipo de Pagamento</mat-label>
+    <mat-select class="notranslate" [(ngModel)]="cartaoTipo" (selectionChange)="escolha()">
+      <mat-option value="Crédito">
+        Crédito
+      </mat-option>
+      <mat-option value="Débito">
+        Débito
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="notranslate animated fadeIn" *ngIf="this.metodoPagamento == 'dinheiro'">
+  <mat-form-field appearance="fill" class="notranslate" style="width: 100%">
+    <mat-label class="notranslate">Valor</mat-label>
+    <input type="number" (focusin)="quantiaCliente = null" (focusout)="checkQuantia()" matInput [(ngModel)]="quantiaCliente">
+  </mat-form-field>
+</div>
+
+<div class="notranslate animated fadeIn" *ngIf="((quantiaCliente > 0 && quantiaCliente != null) || (this.metodoPagamento == 'cartao' && this.cartaoTipo != ''))">
+  <mat-form-field class="notranslate" appearance="fill" style="width: 100%">
+    <mat-label class="notranslate">Tipo de Pedido</mat-label>
+    <mat-select class="notranslate" [(ngModel)]="pedidoTipo" (selectionChange)="pedidoSelect()">
+      <mat-option class="notranslate" value="Retirada">
+        Retirada
+      </mat-option>
+      <mat-option class="notranslate" value="Entrega">
+        Entrega
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+  <div *ngIf="((quantiaCliente > 0 && quantiaCliente != null) || (this.metodoPagamento == 'cartao' && this.cartaoTipo != null)) && this.triggerOptions" style="display: flex; font-weight: bold; justify-content: center">
+    Preço Total com Entrega<br> (Local Cadastrado): {{((checkBairro(this.data.cliente.bairro)) + precoProduto).toFixed(2)}}
+  </div>
+
+<div class="notranslate animated fadeIn" (click)="enderecoSelection(false)" style="display: flex; justify-content: center; padding-top: 20px" *ngIf="((quantiaCliente > 0 && quantiaCliente != null) || (this.metodoPagamento == 'cartao' && this.cartaoTipo != null)) && this.triggerOptions">
+  <button class="botao notranslate" mat-button>Localização Cadastrada</button>
+</div>
+<div (click)="enderecoSelection(true)" class="notranslate animated fadeIn" style="display: flex; justify-content: center; padding-top: 20px" *ngIf="((quantiaCliente > 0 && quantiaCliente != null) || (this.metodoPagamento == 'cartao' && this.cartaoTipo != null)) && this.triggerOptions">
+  <button class="botao notranslate" mat-button>Alterar Destino</button>
+</div>
+
+<div *ngIf="triggerBairro == true" class="notranslate  animated fadeIn">
+  <mat-form-field appearance="fill" style="width: 100%" class="notranslate">
+    <mat-label class="notranslate">Selecione seu Bairro</mat-label>
+    <mat-select [(ngModel)]="bairro" class="notranslate" (selectionChange)="escolhaBairro()">
+      <mat-option value="residencial1">
+        Residencial 1
+      </mat-option>
+      <mat-option value="residencial2">
+        Residencial 2
+      </mat-option>
+      <mat-option value="jardinsdaserra">
+        Jardins da Serra
+      </mat-option>
+      <mat-option value="luzardoviana">
+        Luzardo Viana
+      </mat-option>
+      <mat-option value="maracanazinho">
+        Maracanãzinho
+      </mat-option>
+      <mat-option value="piratininga">
+        Piratininga
+      </mat-option>
+      <mat-option value="novo">
+        Novo Maracanaú
+      </mat-option>
+      <mat-option value="mucuna">
+        Mucunã
+      </mat-option>
+      <mat-option value="jereissati1">
+        Jereissati 1
+      </mat-option>
+      <mat-option value="jereissati2">
+        Jereissati 2
+      </mat-option>
+      <mat-option value="timbo">
+        Timbó
+      </mat-option>
+      <mat-option value="lagoaparque">
+        Lagoa Parque
+      </mat-option>
+      <mat-option value="acaracuzinho">
+        Acaracuzinho
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div *ngIf="triggerBairro && precoEntrega > 0" style="display: flex; font-weight: bold; justify-content: center">
+    Preço Total (Com Entrega): {{(precoEntrega + precoProduto).toFixed(2)}}
+</div>
+<div class="alinharCadastro notranslate  animated fadeIn" *ngIf="triggerBairro == true">
+  <mat-form-field class="formCadastro notranslate">
+    <mat-label class="notranslate">Endereço</mat-label>
+    <input matInput class="notranslate" type="text" placeholder="Digite sua Rua" [(ngModel)]="rua" [formControl]="ruaValidate" name="Rua">
+    <mat-error class="notranslate" *ngIf="ruaValidate.invalid">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+      <span class="errorTxt notranslate">Você deve preencher seu Endereço</span>
+    </mat-error>
+  </mat-form-field>
+</div>
+
+<div class="alinharCadastro notranslate  animated fadeIn" *ngIf="triggerBairro == true">
+  <mat-form-field class="formCadastro notranslate">
+    <mat-label class="notranslate">Ponto de Referência</mat-label>
+    <input matInput type="text" [(ngModel)]="complemento" placeholder="Digite um Complemento" name="Complemento">
+  </mat-form-field>
+</div>
+
+<div (click)="close()" class="notranslate  animated fadeIn" style="display: flex; justify-content: center; padding-top: 20px" *ngIf="
+   ((rua != null && rua != '') && (bairro != null && rua != '' && triggerBairro == true && metodoPagamento == 'cartao'))
+|| ((rua != null && rua != '') && (bairro != null && rua != '' && triggerBairro == true && metodoPagamento == 'dinheiro' && quantiaCliente > 0))
+|| triggerConfirma ">
+  <button class="botao notranslate" mat-button>Confirmar</button>
+</div>
+
+</mat-card>
+</div>

@@ -1,0 +1,15 @@
+
+<div class='title notranslate'>Faça seu acesso!</div>
+<div class="campos notranslate">
+  <mat-form-field>
+    <mat-label class="notranslate" style="font-size: 1.1rem">Celular:</mat-label>
+    <input (keypress)="enterEvent($event)" class="notranslate" matInput placeholder='Digite seu Celular' style="color: #5b2cfd;" [(ngModel)]="usuario.usuario">
+  </mat-form-field>
+</div>
+
+<div class="button notranslate">
+  <button (click)="post()" class="notranslate" mat-raised-button [disabled]="!usuario.usuario" style="color: white; cursor: pointer; background-color: #5c42b1; width: 100%">Entrar</button>
+</div>
+<div style="text-align: center; color: #5b2cfd; margin-top: 10px; font-weight: bold" class="notranslate">ou</div>
+<div (click)="navigate('/cadastro')" class="notranslate" style="text-align: center; color: #5b2cfd; padding-top: 5px; font-size: 1rem; font-weight: bold; cursor: pointer;">Cadastre-se!</div>
+

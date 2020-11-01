@@ -1,0 +1,54 @@
+<div class="bodyCustom notranslate">
+  <mat-card class="cardPrincipal notranslate mat-elevation-z8">
+    <div class='text notranslate' style="color: #5c42b1">
+      Faça seu cadastro!
+    </div>
+
+    <div class="alinharCadastro notranslate">
+      <mat-form-field class="formCadastro notranslate">
+        <mat-label>Usuário</mat-label>
+        <input matInput type="text" required placeholder="Digite seu usuário" [(ngModel)]="usuario.usuario" [formControl]="usuarioValidate" required>
+        <mat-error *ngIf="usuarioValidate.invalid">
+                <span class="notranslate error-icons">
+                    error
+                </span>
+          <span class="errorTxt notranslate">Você deve preencher seu usuário</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <form [formGroup]="senhaValidate">
+      <div class="alinharCadastro notranslate">
+        <mat-form-field class="formCadastro notranslate">
+          <mat-label>Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="usuario.senha" required formControlName="senha" [errorStateMatcher]="matcher">
+          <span matSuffix class="material-icons notranslate" (click)="hide = !hide">
+                {{hide ? 'visibility_off' : 'visibility'}}
+            </span>
+          <mat-error *ngIf="senhaValidate.hasError('required', 'senha')">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+            <span class="errorTxt notranslate">Digite uma senha</span></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="alinharCadastro notranslate">
+        <mat-form-field class="formCadastro notranslate">
+          <mat-label>Confirmar Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" required formControlName ="confirmaSenha" [errorStateMatcher]="matcher">
+          <span matSuffix class="material-icons notranslate" (click)="hide = !hide">
+                    {{hide ? 'visibility_off' : 'visibility'}}
+                    </span>
+          <mat-error *ngIf="senhaValidate.hasError('senhaDiferente')">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+            <span class="errorTxt notranslate">As duas senhas são diferentes</span></mat-error>
+        </mat-form-field>
+      </div>
+      <div (click)="save()" class="alinharCadastro notranslate" style="padding-top: 5%;">
+        <button mat-raised-button class="button notranslate" [disabled]="senhaValidate.invalid || usuarioValidate.invalid">Cadastrar</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,52 @@
+<div class="body notranslate animated fadeIn">
+  <div class='cards notranslate'>
+    <mat-card class='tela notranslate animated fadeIn' [class.mat-elevation-z4]="'isActive'">
+      <div class='cardPrincipal' class="form-group notranslate">
+        <div *ngIf="adm" class="dialogButton notranslate">
+          <button class="notranslate" (click)="openDialogAdd()" mat-button>Adicionar Produtos</button>
+        </div>
+        <!--  <mat-card  *ngFor="let produtos of produto; let i = index" class='produtoModelo animated fadeInUp notranslate' [class.mat-elevation-z6]="'isActive'">
+            <div *ngIf="adm" class="notranslate" style="display: flex;">
+              <div class="notranslate">
+                <button class="notranslate" mat-icon-button (click)="openDialog(produtos)" style="font-size: 2.1rem; background-color: grey;  color: whitesmoke" class="quantity-icons">edit</button>
+              </div>
+              <div style="margin-left: auto; horiz-align: center" class="notranslate">
+                <button class="notranslate" mat-icon-button (click)="deletarProduto(produtos)" style="font-family: 'Material Icons'; font-size: 3rem; color: red;">remove_circle</button>
+              </div>
+            </div> -->
+        <mat-card class='produtoModelo animated fadeInUp notranslate' [class.mat-elevation-z6]="'isActive'">
+          <div *ngIf="adm" class="notranslate" style="display: flex;">
+            <div class="notranslate">
+              <button class="notranslate" mat-icon-button style="font-size: 2.1rem; background-color: grey;  color: whitesmoke" class="quantity-icons">edit</button>
+            </div>
+            <div style="margin-left: auto; horiz-align: center" class="notranslate">
+              <button class="notranslate" mat-icon-button style="font-family: 'Material Icons'; font-size: 3rem; color: red;">remove_circle</button>
+            </div>
+          </div>
+          <img class='img01 notranslate' [class.mat-elevation-z3]="'isActive'">
+          <mat-card style="margin-top: 10px; background-color: white" [class.mat-elevation-z6]="'isActive'">
+            <div class="titulo notranslate" style="font-size: 1rem; font-weight: bold">Teste</div>
+            <div class="titulo notranslate">Produto Teste</div>
+            <div class="titulo notranslate" style="font-size: 1rem; font-weight: bold">Teste</div>
+            <div class="notranslate" style="display: inline">
+              <span class="quantity-icons notranslate" >remove_circle</span>
+              <mat-form-field class="notranslate" name="produto" style="width: 10%; text-align: center">
+                <input matInput type="number" min="0">
+              </mat-form-field>
+              <span class="quantity-icons notranslate" style="color: forestgreen; margin-right: 10px">add_circle</span>
+            </div>
+            <div class="notranslate" style="display: flex; justify-content: center">
+              <mat-form-field class="notranslate" style="width: 60%; text-align: center" name="form">
+                <mat-label>Observação</mat-label>
+                <input matInput type="text" name="produto">
+              </mat-form-field>
+            </div>
+            <div class="notranslate">
+              <button class="notranslate" mat-button style="background-color: #5c42b1; color: white; width: 60%">Comprar</button>
+            </div>
+          </mat-card>
+        </mat-card>
+      </div>
+    </mat-card>
+  </div>
+</div>

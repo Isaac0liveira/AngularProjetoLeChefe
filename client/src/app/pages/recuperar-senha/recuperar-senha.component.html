@@ -1,0 +1,41 @@
+<div class="bodyCustom notranslate">
+  <mat-card class="cardPrincipal notranslate mat-elevation-z8">
+    <div class='text notranslate' style="color: #5c42b1 ">
+      Recupere sua Senha!
+    </div>
+
+    <form [formGroup]="senhaValidate">
+      <div class="alinharCadastro notranslate">
+        <mat-form-field class="formCadastro notranslate">
+          <mat-label class="notranslate">Nova Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="usuario.senha" required formControlName="senha" [errorStateMatcher]="matcher">
+          <span matSuffix class="material-icons notranslate" (click)="hide = !hide">
+                {{hide ? 'visibility_off' : 'visibility'}}
+            </span>
+          <mat-error class="notranslate" *ngIf="senhaValidate.hasError('required', 'senha')">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+            <span class="errorTxt notranslate">Digite uma nova senha</span></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="alinharCadastro notranslate">
+        <mat-form-field class="formCadastro notranslate">
+          <mat-label class="notranslate">Confirmar Nova Senha</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" required formControlName ="confirmaSenha" [errorStateMatcher]="matcher">
+          <span matSuffix class="material-icons notranslate" (click)="hide = !hide">
+                    {{hide ? 'visibility_off' : 'visibility'}}
+                    </span>
+          <mat-error class="notranslate" *ngIf="senhaValidate.hasError('senhaDiferente')">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+            <span class="errorTxt notranslate">As duas senhas são diferentes</span></mat-error>
+        </mat-form-field>
+      </div>
+      <div class="alinharCadastro notranslate" (click)="save()" style="padding-top: 5%;">
+        <button mat-raised-button class="button notranslate" [disabled]="senhaValidate.invalid">Alterar</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

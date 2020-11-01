@@ -1,0 +1,21 @@
+.radioGroup{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.radioButton{
+  padding-top: 10px;
+}
+
+.foto{
+  height: 60px;
+  width: 60px;
+  padding-bottom: 5px;
+}
+
+.botao{
+  width: 100%;
+  background-color: #5c42b1;
+  color: white;
+}

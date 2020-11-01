@@ -1,0 +1,25 @@
+<div class="bodyCustom notranslate">
+  <mat-card class="cardPrincipal notranslate mat-elevation-z8">
+    <div class='text notranslate' style="color: #5c42b1">
+      Confirme seu email!
+    </div>
+
+    <div class="alinharCadastro notranslate">
+      <mat-form-field class="formCadastro notranslate">
+        <mat-label>Email:</mat-label>
+        <input matInput type="text" placeholder="Digite seu usuário" [(ngModel)]="usuario.email" [formControl]="emailValidate" required>
+        <mat-error *ngIf="emailValidate.invalid">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+          <span class="errorTxt notranslate">Você deve preencher seu email</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <div (click)="gerarToken()" class="alinharCadastro notranslate" style="padding-top: 5%;">
+      <button [disabled]="emailValidate.invalid" mat-raised-button style="width: 60%; color: white; background-color: #5c42b1">Confirmar</button>
+    </div>
+  </mat-card>
+</div>

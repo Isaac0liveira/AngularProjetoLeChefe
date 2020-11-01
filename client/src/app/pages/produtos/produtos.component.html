@@ -1,0 +1,75 @@
+<div class="body animated fadeIn">
+<div class='Cards notranslate'>
+  <div class='primaryCard notranslate animated fadeInLeft' style="cursor: pointer" translate="no">
+    <mat-card class="card notranslate" translate="no" (click)="navigateProdutos('pastel')" [class.mat-elevation-z8]="'isActive'">
+      <fa-icon class="material-icons" [icon]="faBreadSlice"></fa-icon>
+      <br>
+      Pastéis
+    </mat-card>
+  </div>
+  <div translate="no" class="animated fadeInRight"  style="cursor: pointer">
+    <mat-card (click)="navigateProdutos('sanduiches')" class="card notranslate" [class.mat-elevation-z8]="'isActive'">
+      <fa-icon class="material-icons" [icon]="faHamburger"></fa-icon>
+      <br>
+      Sanduíches
+    </mat-card>
+  </div>
+</div>
+
+<div class='Cards notranslate' translate="no">
+  <div class='primaryCard notranslate animated fadeInLeft' translate="no"  style="cursor: pointer">
+    <mat-card translate="no" (click)="navigateProdutos('minipizzas') " class="card notranslate" [class.mat-elevation-z8]="'isActive'">
+            <span translate="no" class="material-icons notranslate">
+                local_pizza
+                </span><br>
+      Mini-Pizzas
+    </mat-card>
+  </div>
+  <div class="animated fadeInRight"  style="cursor: pointer">
+    <mat-card translate="no notranslate" class="card" [class.mat-elevation-z8]="'isActive'">
+            <span translate="no" (click)="navigateProdutos('batata')" class="material-icons notranslate">
+                leaderboard
+                </span><br>
+      Batatas
+    </mat-card>
+  </div>
+</div>
+
+<div translate="no" class='Cards' >
+  <div translate="no" class="animated fadeInLeft"  style="cursor: pointer">
+    <mat-card translate="no" (click)="navigateProdutos('bebidas')" class="card" [class.mat-elevation-z8]="'isActive'">
+            <span translate="no" class="material-icons notranslate">
+                local_bar
+                </span><br>
+      Bebidas
+    </mat-card>
+  </div>
+  <div class='primaryCard notranslate animated fadeInRight' translate="no"  style="cursor: pointer">
+    <mat-card class="card notranslate" translate="no" (click)="navigateProdutos('sucos')" [class.mat-elevation-z8]="'isActive'">
+            <span class="material-icons notranslate" translate="no">
+                local_drink
+                </span><br>
+      Sucos e Vitaminas
+    </mat-card>
+  </div>
+</div>
+
+<div translate="no" class='Cards'  style="cursor: pointer" >
+  <div class='primaryCard notranslate animated fadeInUp' translate="no">
+    <mat-card class="card notranslate" translate="no" (click)="navigateProdutos('combos')" [class.mat-elevation-z8]="'isActive'">
+            <span class="material-icons notranslate" translate="no">
+                local_activity
+                </span><br>
+      Combos
+    </mat-card>
+  </div>
+  <div translate="no" *ngIf="adm == true" class="animated fadeInUp"  style="cursor: pointer">
+    <mat-card translate="no" (click)="navigateProdutos('acrescimo')" class="card" [class.mat-elevation-z8]="'isActive'">
+            <span translate="no" class="material-icons notranslate">
+                food_bank
+                </span><br>
+      Acréscimos
+    </mat-card>
+  </div>
+</div>
+</div>

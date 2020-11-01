@@ -1,0 +1,50 @@
+<div class='header notranslate' id="meuHeader">
+    <mat-toolbar class='mat-elevation-z6 notranslate' [ngClass]="{'sticky' : isSticky}">
+        <mat-toolbar-row class="notranslate" style="display: inline-flex">
+            <button class="notranslate" mat-button aria-label="Menu" (click)="sidenav.open()" (click)='overlay()' (clickOutside)="sidenav.close()" (clickOutside)="closeNav()">
+                <span class="material-icons notranslate">
+                    menu
+                </span></button>
+                <div class='title notranslate'>Menu</div>
+
+            <div class="menuBar notranslate"  style="cursor: pointer" [matMenuTriggerFor]="menu" *ngIf="logged">
+              <button class="notranslate" mat-icon-button>
+                <span class='login-icons notranslate'>person </span>
+              </button>
+              <div style="padding-top: 2.5px;padding-left: 2px;" class="textBar notranslate">{{usuario}}<mat-menu #menu="matMenu" class="mat2-menu-content">
+              <button class="notranslate" mat-menu-item *ngIf="superuser == false" (click)="goTo('inicio/perfil')" style="font-size: 1.3rem; color: #4000b8">
+                <span class="material-icons notranslate" style="font-size: 1.2rem;">chrome_reader_mode</span>Perfil</button>
+                <button class="notranslate" mat-menu-item (click)="goTo('inicio/historico')" style="font-size: 1.3rem; color: #4000b8">
+                  <span class="material-icons notranslate" style="font-size: 1.2rem;">history</span>Histórico</button>
+                <button class="notranslate" mat-menu-item (click)="quit()" style="font-size: 1.3rem; color: #4000b8">
+                  <span class="material-icons notranslate" style="font-size: 1.2rem;">meeting_room</span>Sair</button>
+              </mat-menu></div>
+            </div>
+
+            <div (click)="openDialog()" style="cursor: pointer" class="menuBar notranslate" *ngIf="!logged">
+                <button class="notranslate" mat-button>
+                    <span class='login-icons notranslate'>person</span>
+                </button>
+              <div class='title notranslate'>Login</div>
+            </div>
+            </mat-toolbar-row>
+        </mat-toolbar>
+</div>
+
+<div id='myNav' class='overlay notranslate'>
+<div class='navbar notranslate'>
+    <mat-sidenav-container class='container notranslate'>
+        <mat-sidenav class="notranslate" #sidenav closed fixedInViewport='true' style="width: 300px;" [class.mat-elevation-z8]="'isActive'">
+            <mat-nav-list class="notranslate">
+                <a (click)="navigateProdutos('inicio')" mat-list-item class="list-item notranslate" ><span class="material-icons notranslate">
+                    home_work
+                    </span> Início</a>
+            </mat-nav-list>
+            <mat-nav-list class="notranslate">
+                <a (click)="navigateProdutos('produtos')"  mat-list-item class="list-item notranslate" ><span class="material-icons notranslate">
+                    restaurant
+                    </span> Produtos</a>
+            </mat-nav-list>
+        </mat-sidenav>
+    </mat-sidenav-container>
+</div>

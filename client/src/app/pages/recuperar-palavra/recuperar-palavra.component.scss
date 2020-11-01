@@ -1,0 +1,7 @@
+button {
+  width: 60%; color: white; background-color: #5c42b1
+}
+
+button :disabled{
+  width: 60%; color: grey; background-color: ghostwhite;
+}

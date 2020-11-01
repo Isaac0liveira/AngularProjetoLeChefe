@@ -1,0 +1,43 @@
+<div notranslate class="bodyDialog">
+<mat-form-field>
+  <mat-label class="notranslate">Nome do Produto</mat-label>
+  <input matInput type="text" [(ngModel)]="nomeProduto">
+</mat-form-field>
+<mat-form-field>
+  <mat-label class="notranslate">Preço do Produto</mat-label>
+  <input matInput type="number" [(ngModel)]="precoProduto">
+</mat-form-field>
+  <mat-label *ngIf="acrescimo == false" class="notranslate">Foto do Produto</mat-label>
+  <input *ngIf="acrescimo == false" type="file" (change)="addFoto($event)">
+<div *ngIf="haveSub" class="notranslate">
+  <mat-form-field class="notranslate">
+    <mat-label>Tipo</mat-label>
+    <mat-select [(ngModel)]="subTipo">
+      <mat-option value="arabe">Árabe</mat-option>
+      <mat-option value="bola">Bola</mat-option>
+      <mat-option value="brioche">Brioche</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+  <mat-form-field translate="no">
+    <mat-label translate="no">Descrição</mat-label>
+    <input translate="no" matInput type="text" [(ngModel)]="descrProduto">
+  </mat-form-field>
+  <div translate="no">
+    <mat-form-field translate="no">
+      <mat-label translate="no">Disponibilidade</mat-label>
+      <mat-select translate="no" [(ngModel)]="esgotado">
+        <mat-option translate="no" value="false">Disponível</mat-option>
+        <mat-option translate="no" value="true">Esgotado</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div (click)="edit()" *ngIf="nomeProduto.length > 0 && precoProduto > 0 && haveSub == true
+ && (subTipo == 'arabe' || subTipo == 'bola' || subTipo == 'brioche') && (esgotado == 'true' || esgotado == 'false')"
+  class="dialogButton notranslate">
+    <button mat-button class="notranslate">Editar Dados</button>
+  </div>
+  <div (click)="edit()" *ngIf="nomeProduto.length > 0 && precoProduto > 0 && haveSub == false && (esgotado == 'true' || esgotado == 'false')" class="dialogButton notranslate">
+    <button mat-button class="notranslate">Editar Dados</button>
+  </div>
+</div>

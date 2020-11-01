@@ -1,0 +1,21 @@
+<div class='text notranslate' style="color: #5c42b1">
+  Digite o Token que enviamos ao seu email.
+</div>
+<div>
+  <div class="alinharCadastro notranslate">
+    <mat-form-field class="formCadastro notranslate">
+      <mat-label class="notranslate">Token:</mat-label>
+      <input matInput type="text" placeholder="Digite seu Token" [(ngModel)]="usuario.token" [formControl]="tokenValidate" required>
+      <mat-error class="notranslate" *ngIf="tokenValidate.invalid">
+                <span class="error-icons notranslate">
+                    error
+                </span>
+        <span class="errorTxt notranslate">Você deve preencher seu email</span>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div (click)="validarToken()" class="alinharCadastro notranslate" style="padding-top: 10%;">
+    <button mat-raised-button class="notranslate" style="width: 60%; color: white; background-color: #5c42b1">Confirmar</button>
+  </div>
+</div>
